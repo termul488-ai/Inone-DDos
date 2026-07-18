@@ -186,8 +186,8 @@ def main():
     attemps = 0
     # Print header when tool runs
     print(f"╔{'═' * 55}╗")
-    print(f"║\033[48;5;1m\033[97m  Design: Kunfayz namaku{' ' * 30} \033[0m{Fore.LIGHTRED_EX}║")
-    print(f"║\033[48;5;1m\033[97m  Black Army Cyber grupe{' ' * 30} \033[0m{Fore.LIGHTRED_EX}║")
+    print(f"║\033[48;5;1m\033[97m  Design: Kunfayz namaku{' ' * 30} \033[0m║")
+    print(f"║\033[48;5;1m\033[97m  Black Army Cyber grupe{' ' * 30} \033[0m║")
     print(f"╚{'═' * 55}╝")
 
     while attemps < 100:
@@ -240,7 +240,7 @@ def main():
         print("\033[48;5;3mExecution Style:\033[0m")
         print("\033[32m┏━━━> Single (press.1)")
         print("\033[32m┗━━━> Multi-threaded (press.2)")
-        style = input(Fore.LIGHTCYAN_EX + "Select style (1-2): ").strip()
+        style = input("Select style (1-2): ").strip()
 
         if method == "1":
             if style == "1":
