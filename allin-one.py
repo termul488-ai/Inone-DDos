@@ -191,8 +191,8 @@ def main():
     print(f"╚{'═' * 55}╝")
 
     while attemps < 100:
-        username = input("\033[32m┏━━━━━> Enter your username: \033[0m")
-        password = input("\033[32m┗━━━━━> Enter your password: \033[0m")
+        username = input("\033[36m┏━━━━━> Enter your username: \033[30m")
+        password = input("\033[36m┗━━━━━> Enter your password: \033[30m")
 
         if username == 'in1' and password == 'in1':
             print("\033[48;5;7m\033[30m••⟩⟩ R U A N G  P E J U A N G ...!!\033[0m")
@@ -207,18 +207,18 @@ def main():
     print("\033[32m┗━> TCP press 2")
     print("\033[32m┗━> HTTP press 3")
     
-    protocol = input("\033[48;5;7m\033[30mSELECT PROTOKOL (1-3):\033[0m\033[32m \033[0m").strip()
+    protocol = input("\033[48;5;7m\033[30m•> SELECT PROTOKOL (1-3):\033[0m\033[37m").strip()
 
     if protocol == "1":  # UDP
-        print("\033[48;5;3mUDP METODS:\033[0m")
+        print("\033[48;5;7m\033[30m•> UDP METODS:\033[0m")
         print("\033[32m┏━━━> UDP Plain press 1")
         print("\033[32m┗━━━> UDP Random press 2")
-        method = input("\033[48;5;3m Select method (1-2):\033[0m\033[32m \033[0m").strip()
+        method = input("\033[48;5;7m\033[30m•> Select method (1-2):\033[0m\033[32m \033[0m").strip()
         print("┏━━━━━━━━━━━⬣")
-        ip = input("┗━> IP Server: ")
-        port = validate_input("┗━> Port (80): ", 1, 65535)
-        duration = validate_input("┗━> Flood duration: ", 1, float('inf'), float)
-        packet_size = validate_input("┗━> Enter packet size in bytes (1-65500): ", 1, 65500)
+        ip = input("\033[36m┗━> IP Server: \033[37m")
+        port = validate_input("\033[36m┗━> Port (80): \033[37m", 1, 65535)
+        duration = validate_input("\033[36m┗━> Flood duration: \033[37m", 1, float('inf'), float)
+        packet_size = validate_input("\033[36m┗━> Enter packet size in bytes (1-65500): \033[0m", 1, 65500)
         
         if method == "1":
             udp_plain_flood(ip, port, duration, packet_size)
