@@ -202,23 +202,23 @@ def main():
             attemps += 1
             continue
     
-    print("\033[32m┏━━Protocols━━⬣")
-    print("\033[32m┗━> UDP press 1")
-    print("\033[32m┗━> TCP press 2")
-    print("\033[32m┗━> HTTP press 3")
+    print("\033[36m┏━━Protocols━━⬣")
+    print("\033[36m┗━> UDP press 1")
+    print("\033[36m┗━> TCP press 2")
+    print("\033[36m┗━> HTTP press 3")
     
-    protocol = input("\033[48;5;7m\033[30m•> SELECT PROTOKOL (1-3):\033[0m\033[37m").strip()
+    protocol = input("\033[48;5;7m\033[30m•> SELECT PROTOKOL (1-3):\033[0m) \033[37m").strip()
 
     if protocol == "1":  # UDP
         print("\033[48;5;7m\033[30m•> UDP METODS:\033[0m")
-        print("\033[32m┏━━━> UDP Plain press 1")
-        print("\033[32m┗━━━> UDP Random press 2")
+        print("\033[36m┏━━━> UDP Plain press 1")
+        print("\033[36m┗━━━> UDP Random press 2")
         method = input("\033[48;5;7m\033[30m•> Select method (1-2):\033[0m\033[32m \033[0m").strip()
-        print("┏━━━━━━━━━━━⬣")
+        print("\033[36m┏━━━━━━━━━━━⬣")
         ip = input("\033[36m┗━> IP Server: \033[37m")
         port = validate_input("\033[36m┗━> Port (80): \033[37m", 1, 65535)
         duration = validate_input("\033[36m┗━> Flood duration: \033[37m", 1, float('inf'), float)
-        packet_size = validate_input("\033[36m┗━> Enter packet size in bytes (1-65500): \033[0m", 1, 65500)
+        packet_size = validate_input("\033[36m┗━> Enter packet size in bytes (1-65500): \033[37m", 1, 65500)
         
         if method == "1":
             udp_plain_flood(ip, port, duration, packet_size)
@@ -228,10 +228,10 @@ def main():
             print(f"[!] Invalid UDP method.")
 
     elif protocol == "2":  # TCP
-        print("\033[48;5;7m\033[30m TCP METHODS:")
+        print("\033[48;5;7m\033[30m•> TCP METHODS:\033[0m")
         print("\033[32m┏━━━> TCP SYN Flood (press.1)")
         print("\033[32m┗━━━> TCP Data Flood (press.2)")
-        method = input("\033[48;5;7m\033[30m SELECT METHODS (1-2):\033[0m\033[32m \033[0m").strip()
+        method = input("\033[48;5;7m\033[30m•> SELECT METHODS (1-2):\033[0m \033[0m\033[32m \033[0m").strip()
 
         ip = input("┗━>Server IP: ")
         port = validate_input("┗━> Port (80/443): ", 1, 65535)
