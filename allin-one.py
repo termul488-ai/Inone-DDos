@@ -207,7 +207,7 @@ def main():
     print("\033[36m┗━> TCP press 2")
     print("\033[36m┗━> HTTP press 3")
     
-    protocol = input("\033[48;5;7m\033[30m•> SELECT PROTOKOL (1-3):\033[0m) \033[37m").strip()
+    protocol = input("\033[48;5;7m\033[30m•> SELECT PROTOKOL (1-3):\033[0m \033[37m").strip()
 
     if protocol == "1":  # UDP
         print("\033[48;5;7m\033[30m•> UDP METODS:\033[0m")
@@ -225,21 +225,21 @@ def main():
         elif method == "2":
             udp_random_flood(ip, port, duration, packet_size)
         else:
-            print(f"[!] Invalid UDP method.")
+            print(f"\033[91m[!] Invalid UDP method.")
 
     elif protocol == "2":  # TCP
         print("\033[48;5;7m\033[30m•> TCP METHODS:\033[0m")
-        print("\033[32m┏━━━> TCP SYN Flood (press.1)")
-        print("\033[32m┗━━━> TCP Data Flood (press.2)")
-        method = input("\033[48;5;7m\033[30m•> SELECT METHODS (1-2):\033[0m \033[0m\033[32m \033[0m").strip()
+        print("\033[36m┏━━━> TCP SYN Flood (press.1)")
+        print("\033[36m┗━━━> TCP Data Flood (press.2)")
+        method = input("\033[48;5;7m\033[30m•> SELECT METHODS (1-2):\033[0m\033[32m \033[0m").strip()
 
-        ip = input("┗━>Server IP: ")
-        port = validate_input("┗━> Port (80/443): ", 1, 65535)
-        duration = validate_input("┗━> Flood duration in seconds: ", 1, float('inf'), float)
+        ip = input("\033[36m┗━>Server IP: ")
+        port = validate_input("\033[36m┗━> Port (80/443): ", 1, 65535)
+        duration = validate_input("\033[36m┗━> Flood duration in seconds: ", 1, float('inf'), float)
 
-        print("\033[48;5;7m\033[30m Execution Style:\033[0m")
-        print("\033[32m┏━━━> Single (press.1)")
-        print("\033[32m┗━━━> Multi-threaded (press.2)")
+        print("\033[48;5;7m\033[30m•> Execution Style:\033[0m")
+        print("\033[36m┏━━━> Single (press.1)")
+        print("\033[36m┗━━━> Multi-threaded (press.2)")
         style = input("Select style (1-2): ").strip()
 
         if method == "1":
