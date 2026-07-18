@@ -195,7 +195,7 @@ def main():
         password = input("\033[32m┗━━━━━> Enter your password: \033[0m")
 
         if username == 'in1' and password == 'in1':
-            print("\033[48;5;7m••⟩⟩ \033[30mR U A N G  P E J U A N G ...!!\033[0m")
+            print("\033[48;5;7m\033[30m••⟩⟩ R U A N G  P E J U A N G ...!!\033[0m")
             break
         else:
             print('Incorrect credentials. Check if you have Caps lock on and try again.')
@@ -207,7 +207,7 @@ def main():
     print("\033[32m┗━> TCP press 2")
     print("\033[32m┗━> HTTP press 3")
     
-    protocol = input("\033[48;5;3mSELECT PROTOKOL (1-3):\033[0m\033[32m \033[0m").strip()
+    protocol = input("\033[48;5;7m\033[30mSELECT PROTOKOL (1-3):\033[0m\033[32m \033[0m").strip()
 
     if protocol == "1":  # UDP
         print("\033[48;5;3mUDP METODS:\033[0m")
@@ -228,16 +228,16 @@ def main():
             print(f"[!] Invalid UDP method.")
 
     elif protocol == "2":  # TCP
-        print("\033[48;5;3mTCP METHODS:")
+        print("\033[48;5;7m\033[30m TCP METHODS:")
         print("\033[32m┏━━━> TCP SYN Flood (press.1)")
         print("\033[32m┗━━━> TCP Data Flood (press.2)")
-        method = input("\033[48;5;3mSELECT METHODS (1-2):\033[0m\033[32m \033[0m").strip()
+        method = input("\033[48;5;7m\033[30m SELECT METHODS (1-2):\033[0m\033[32m \033[0m").strip()
 
         ip = input("┗━>Server IP: ")
         port = validate_input("┗━> Port (80/443): ", 1, 65535)
         duration = validate_input("┗━> Flood duration in seconds: ", 1, float('inf'), float)
 
-        print("\033[48;5;3mExecution Style:\033[0m")
+        print("\033[48;5;7m\033[30m Execution Style:\033[0m")
         print("\033[32m┏━━━> Single (press.1)")
         print("\033[32m┗━━━> Multi-threaded (press.2)")
         style = input("Select style (1-2): ").strip()
