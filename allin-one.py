@@ -85,7 +85,7 @@ def tcp_syn_flood_single(ip, port, duration):
 
 def tcp_syn_flood_multi(ip, port, duration):
     end_time = time.time() + duration
-    print("☑️\033[3m Starting TCP SYN flood \033[38;5;220mconnect-ex \033[32{ip}\033[37m:{port} \033[33mpacket-count{packet_count}\033[0m")
+    print("☑️\033[3m Starting TCP SYN flood multi \033[38;5;220mconnect-ex \033[32{ip}\033[37m:{port} \033[33mpacket-count{packet_count}\033[0m")
     packet_count = [0]  # List to share count across threads
 
     def syn_worker():
